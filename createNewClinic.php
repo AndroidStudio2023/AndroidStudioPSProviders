@@ -11,13 +11,13 @@ $uname="root";
 $pass="";
 $dbname="androidstudiobase";
 //User's data from url
-$clinicName = $_GET[''];
-$clinicAddress = $_GET[''];
-$clinicAFM = $_GET[''];
-$docID = $_GET[''];
-$docName = $_GET[''];
-$docEmail = $_GET[''];
-$docPassword = $_GET[''];
+$clinicName = $_GET['name'];
+$clinicAddress = $_GET['address'];
+$clinicAFM = $_GET['afm'];
+$docID = $_GET['docID'];
+$docName = $_GET['docName'];
+$docEmail = $_GET['email'];
+$docPassword = $_GET['password'];
 
 $flag=0;
 $data = "Fail";
