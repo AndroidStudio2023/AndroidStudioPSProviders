@@ -5,7 +5,7 @@ If it find the user, then returns userID and userName(First & Last name) as JSON
 In case where user is physicotherapist, provider returns and the clinic's data. */
 
 //Login and server connection data
-$host="localhost";
+$host="localhost:3306";
 $uname="root";
 $pass="";
 $dbname="androidstudiobase";
