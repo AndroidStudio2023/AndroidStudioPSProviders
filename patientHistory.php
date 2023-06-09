@@ -9,8 +9,9 @@ $pass='root';
 $dbname='physiotherapy';
 
 
-//patientid from URL
-//$patientid = $_GET['patientid'];
+//patientid and doctorid from URL
+$patientid = $_GET['patientid'];
+$doctorid = $_GET['doctorid'];
 
 //history: array with the patient's history data
 $history = array();
@@ -22,8 +23,8 @@ mysqli_select_db($dbh, $dbname);
 
 //This query returns all possible rows of the patient's history services and adds all the dates in the end
 //patientid = 11120202352
-$sql = "SELECT serviceName FROM services JOIN histories ON services.serviceID = histories.ServiceID AND PatientID = 11120202352 
-        UNION ALL SELECT servDate FROM histories WHERE PatientID = 11120202352";
+$sql = "SELECT serviceName FROM services JOIN histories ON services.serviceID = histories.ServiceID AND PatientID ='".$patientid."' AND  physiotherapistID ='".$doctorid."'
+        UNION ALL SELECT servDate FROM histories WHERE PatientID ='".$patientid."' AND  physiotherapistID ='".$doctorid."'";
 
 //Gets the result from the execution of the query
  $result = mysqli_query($dbh, $sql);
