@@ -15,7 +15,7 @@ $docID=$_GET['id'];
 //Connect
 $dbh = mysqli_connect($host,$uname,$pass) or die("cannot connect");
 mysqli_select_db($dbh, $dbname);
-$sql = "SELECT patients.AMKA,patients.patientName,patinetsrequests.requestTime FROM patinetsrequests
+$sql = "SELECT * FROM patinetsrequests
 INNER JOIN 
 patients
 ON patinetsrequests.patientID=patients.AMKA
@@ -23,7 +23,7 @@ WHERE patinetsrequests.physiotherapistID='".$docID."'";
 $result =  mysqli_query($dbh, $sql);
 while ($row=mysqli_fetch_array($result)) {
     $currentRequestArray= array();
-    array_push($currentRequestArray,$row['AMKA'],$row['patientName'],$row['requestTime']);
+    array_push($currentRequestArray,$row['requestID'],$row['AMKA'],$row['patientName'],$row['requestTime']);
     array_push($data,$currentRequestArray);
 }
 
